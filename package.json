@@ -1,0 +1,23 @@
+{
+  "name": "pandoclatexhtml",
+  "version": "1.0.0",
+  "description": "",
+  "main": "commandLine.js",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/19khowes/PandocLatexHTML.git"
+  },
+  "author": "Kade Howes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/19khowes/PandocLatexHTML/issues"
+  },
+  "homepage": "https://github.com/19khowes/PandocLatexHTML#readme"
+}

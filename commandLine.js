@@ -45,14 +45,14 @@ function convertTex(inputName) {
     });
 }
 
-function printOutput(inputName) {
+async function printOutput(inputName) {
     const data = fs.readFileSync(`${inputName}.html`, 'utf8');
     const re = /<body>([\s\S]*)<\/body>/;
     const match = data.match(re);
 
     const output = match[1];
-    console.log(`Copy the code in ${inputName}.html`);
     fs.writeFileSync(`${inputName}.html`, output);
+    console.log(`Copy the code in ${inputName}.html`);
     // console.log(data);
     // console.log(inputName);
 }

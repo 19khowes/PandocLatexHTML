@@ -3,6 +3,10 @@ const {
 } = require("child_process");
 const prompt = require('prompt-sync')();
 const fs = require('fs');
+const os = require('os');
+
+const userInfo = os.userInfo();
+const username = userInfo.username;
 
 getFile();
 
@@ -11,6 +15,7 @@ async function getFile() {
     let goodFile = false;
     let inputName, input, inputExtension
     while (!goodFile) {
+        console.log('Make sure your .tex file is on your desktop, then...')
         input = prompt('Type .tex file you would like to convert to HTML: ');
         inputName = input.slice(0, -4);
         inputExtension = input.split('.').pop();
@@ -30,7 +35,9 @@ async function getFile() {
 
 function convertTex(inputName) {
     return new Promise((resolve, reject) => {
-        exec(`pandoc ${inputName}.tex -f latex -t html -s -o ${inputName}.html --mathjax`, (error, stdout, stderr) => {
+        // exec(`pandoc ${inputName}.tex -f latex -t html -s -o ${inputName}.html --mathjax`, (error, stdout, stderr) => {
+        exec(`pandoc C:/Users/"${username}"/Desktop/${inputName}.tex -f latex -t html -s -o ${inputName}.html --mathjax`, (error, stdout, stderr) => {
+
             if (error) {
                 console.log(`error: ${error.message}`);
                 reject(error.message);
